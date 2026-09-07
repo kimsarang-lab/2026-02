@@ -1,0 +1,34 @@
+##00 Preview
+        cf/ data name 
+        *   submission.csv = total file
+        *   test.csv = Survived 존재
+        *   train.csv = Survived 없음
+
+1. Data 확인
+-변수명 / 변수설명
+  Surived:0=사망, 1=생존
+  Pclass: 1=1등석, 2=2등석, 3=3등석
+  gender:male=남성, female=여성
+  Age: 나이
+  SibSp: 타이타닉 호에 동승한 자매/배우자의 수
+  Parch: 타이타닉 호에 동승한 부모/자식의 수
+  Ticket: 티켓 번호
+  Fare: 승객 요금
+  Cabin: 방 호수
+  Embarked: 탑승지; C=셰르부르, Q=퀴즈타운, S=사우샘프턴
+
+2. 데이터 구조 확인
+
+
+## 결측치 확인
+code
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+  
+  plt.figure(figsize=(12, 6))
+  sns.heatmap(train.isnull(), cbar=False, cmap='viridis')
+  plt.title('Missing Values in Train Data')
+  plt.show()
+
+pic
+
