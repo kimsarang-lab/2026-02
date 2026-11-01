@@ -1,4 +1,4 @@
-<img width="804" height="735" alt="스크린샷 2026-11-02 오전 2 57 12" src="https://github.com/user-attachments/assets/03b1321b-3859-4e26-80a2-d5d747b54682" />﻿# 📘 SQL_BASIC 6주차 정규 과제
+﻿# 📘 SQL_BASIC 6주차 정규 과제
 
 SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQuery(SQL) 입문` 강의를 듣고, 핵심 개념을 정리한 뒤 간단한 SQL 문제를 직접 풀어보는 방식으로 진행합니다.
 
@@ -132,11 +132,8 @@ WHERE I.ANIMAL_ID IS NULL;
 
 # 2️⃣ 수행 인증란
 
-아래 중 하나 이상을 첨부해주세요.
+<img width="1512" height="735" alt="image" src="https://github.com/user-attachments/assets/3b11d9c5-9517-4653-8308-b19da7bec6ab" />
 
-- 강의 수강 화면 캡처
-- JOIN 문제 풀이 정답 화면 캡처
-- JOIN 전후 결과 row 수를 비교한 캡처 또는 메모
 
 ---
 
