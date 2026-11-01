@@ -65,28 +65,67 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 - NULL
 - 다중 JOIN
 
-## 01.
 
-```
-개념 이름:
+01.
+개념 이름: JOIN과 JOIN key
+
 개념 설명:
+- JOIN은 서로 다른 테이블에 저장된 데이터를 하나의 결과로 연결하는 방법이다.
+- 테이블을 연결할 때 공통으로 가지고 있는 컬럼을 JOIN key로 사용한다.
+- JOIN key를 잘못 지정하면 관계없는 데이터가 연결되거나 결과 행이 예상보다 많아질 수 있다.
+- 두 테이블에 같은 이름의 컬럼이 있다면 테이블 별칭을 붙여 어느 테이블의 컬럼인지 표시하는 것이 좋다.
+
 예시 쿼리:
-```
 
-## 02.
+SELECT
+    B.BOOK_ID,
+    A.AUTHOR_NAME
+FROM BOOK AS B
+JOIN AUTHOR AS A
+    ON B.AUTHOR_ID = A.AUTHOR_ID;
 
-```
-개념 이름:
+- 연결한 테이블: BOOK, AUTHOR
+- JOIN key: AUTHOR_ID
+- 별칭: BOOK은 B, AUTHOR는 A
+
+02.
+개념 이름: INNER JOIN과 LEFT JOIN
+
 개념 설명:
+- INNER JOIN은 두 테이블에 JOIN key가 모두 존재하는 데이터만 조회한다.
+- LEFT JOIN은 왼쪽 테이블의 데이터를 모두 유지하고, 오른쪽 테이블에서 일치하는 데이터를 연결한다.
+- LEFT JOIN에서 오른쪽 테이블에 일치하는 데이터가 없으면 해당 컬럼에 NULL이 표시된다.
+- 기준 테이블의 데이터를 모두 남겨야 할 때는 LEFT JOIN을 사용한다.
+
 예시 쿼리:
-```
 
-## (선택) 03.
+SELECT
+    O.ANIMAL_ID,
+    O.NAME
+FROM ANIMAL_OUTS AS O
+LEFT JOIN ANIMAL_INS AS I
+    ON O.ANIMAL_ID = I.ANIMAL_ID
+WHERE I.ANIMAL_ID IS NULL;
 
-```
-개념 이름:
+- 왼쪽 테이블: ANIMAL_OUTS
+- 오른쪽 테이블: ANIMAL_INS
+- JOIN key: ANIMAL_ID
+- ANIMAL_INS에 일치하는 기록이 없으면 I.ANIMAL_ID가 NULL이 된다.
+
+03.
+개념 이름: alias, NULL과 다중 JOIN
+
 개념 설명:
+- alias는 테이블이나 컬럼에 짧은 별칭을 붙이는 기능이다.
+- JOIN을 사용할 때 별칭을 붙이면 쿼리를 짧고 명확하게 작성할 수 있다.
+- NULL은 값이 0이거나 빈 문자열이라는 의미가 아니라 값이 없다는 의미이다.
+- NULL을 확인할 때는 = NULL이 아니라 IS NULL 또는 IS NOT NULL을 사용한다.
+- 다중 JOIN은 세 개 이상의 테이블을 차례로 연결하는 방법이다.
+
 헷갈린 점:
+- LEFT JOIN에서는 어느 테이블을 왼쪽에 작성하는지에 따라 결과가 달라질 수 있다.
+- JOIN key에 중복된 값이 있으면 하나의 행이 여러 행과 연결되어 결과 행의 수가 증가할 수 있다.
+- 따라서 JOIN 전후의 행 수와 JOIN key의 중복 여부를 확인해야 한다.
 ```
 
 ---
