@@ -1,4 +1,4 @@
-﻿# 📘 SQL_BASIC 6주차 정규 과제
+<img width="804" height="735" alt="스크린샷 2026-11-02 오전 2 57 12" src="https://github.com/user-attachments/assets/03b1321b-3859-4e26-80a2-d5d747b54682" />﻿# 📘 SQL_BASIC 6주차 정규 과제
 
 SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQuery(SQL) 입문` 강의를 듣고, 핵심 개념을 정리한 뒤 간단한 SQL 문제를 직접 풀어보는 방식으로 진행합니다.
 
@@ -151,12 +151,13 @@ WHERE I.ANIMAL_ID IS NULL;
 풀이 과정:
 
 ```
-- 사용한 테이블:
-- JOIN key:
-- 날짜를 출력한 형식:
+- 사용한 테이블: 도서 정보를 담은 BOOK 테이블과 저자 정보를 담은 AUTHOR 테이블
+- JOIN key: 두 테이블에 공통으로 존재하는 AUTHOR_ID
+- 날짜를 출력한 형식: DATE_FORMAT을 사용하여 %Y-%m-%d 형식으로 출력
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="804" height="735" alt="image" src="https://github.com/user-attachments/assets/054ed7bf-86de-4ab9-b523-bff6dcd151b3" />
+
 
 ## 🧩 문제 2
 
@@ -165,12 +166,13 @@ WHERE I.ANIMAL_ID IS NULL;
 풀이 과정:
 
 ```
-- 연결한 테이블:
-- JOIN key:
-- 집계한 값:
+- 연결한 테이블: PRODUCT 테이블과 OFFLINE_SALE 테이블
+- JOIN key: PRODUCT_ID
+- 집계한 값: 상품 가격과 판매량을 곱한 매출액의 합계
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="804" height="735" alt="image" src="https://github.com/user-attachments/assets/23304581-3988-445a-9f1c-3bb99a95ae0a" />
+
 
 ## 🧩 문제 3
 
@@ -179,12 +181,13 @@ WHERE I.ANIMAL_ID IS NULL;
 풀이 과정:
 
 ```
-- 기준이 되는 왼쪽 테이블:
-- LEFT JOIN이 필요한 이유:
-- NULL이 발생하는 경우:
+- 기준이 되는 왼쪽 테이블: 입양 기록이 저장된 ANIMAL_OUTS 테이블
+- LEFT JOIN이 필요한 이유: 입양 기록은 있지만 보호소에 들어온 기록이 없는 동물도 결과에 남겨야 하기 때문
+- NULL이 발생하는 경우: ANIMAL_OUTS의 동물 ID와 일치하는 기록이 ANIMAL_INS에 없는 경우
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="804" height="735" alt="image" src="https://github.com/user-attachments/assets/3f56fc32-06a7-4f5b-b51b-7a9ee98196a0" />
+
 
 ## 🧩 문제 4
 
@@ -193,13 +196,14 @@ WHERE I.ANIMAL_ID IS NULL;
 풀이 과정:
 
 ```
-- 사용한 테이블:
-- JOIN key:
-- 비교한 날짜 컬럼:
-- 정렬 기준:
+- 사용한 테이블: ANIMAL_INS 테이블과 ANIMAL_OUTS 테이블
+- JOIN key: ANIMAL_ID
+- 비교한 날짜 컬럼: ANIMAL_OUTS의 입양일과 ANIMAL_INS의 보호 시작일
+- 정렬 기준: 보호 시작일을 기준으로 오름차순 정렬
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="804" height="735" alt="image" src="https://github.com/user-attachments/assets/768ad0c7-a668-40e7-8316-6f1b21dceb2b" />
+
 
 ---
 
@@ -216,8 +220,13 @@ JOIN 개념이 헷갈린다면 아래 자료를 함께 참고해도 좋습니다
 
 ```
 1. INNER JOIN과 LEFT JOIN의 차이를 어떻게 이해했는지:
+INNER JOIN은 두 테이블에 JOIN key가 모두 존재하는 데이터만 조회하고, LEFT JOIN은 왼쪽 테이블의 데이터를 모두 유지하는 방법으로 이해했다. 특히 LEFT JOIN에서는 오른쪽 테이블에 일치하는 데이터가 없으면 NULL이 발생하므로, 누락된 기록을 찾을 때 활용할 수 있다는 것을 알게 되었다.
+
 2. JOIN 문제를 풀 때 가장 먼저 확인해야 할 것:
+먼저 어떤 테이블의 데이터를 기준으로 조회해야 하는지 확인하고, 테이블을 연결할 수 있는 공통 컬럼인 JOIN key를 찾아야 한다. 그다음 INNER JOIN과 LEFT JOIN 중 어떤 방법이 필요한지 판단하고, JOIN key에 중복된 값이 있는지도 확인해야 한다.
+
 3. JOIN 결과가 예상과 달랐던 경험이 있다면:
+LEFT JOIN에서 왼쪽과 오른쪽 테이블의 순서를 잘못 정하면 필요한 데이터가 결과에서 빠질 수 있다는 점이 헷갈렸다. 또한 JOIN key에 중복된 값이 있으면 하나의 행이 여러 행과 연결되어 결과 행이 예상보다 많아질 수 있다는 것을 알게 되었다. 앞으로는 JOIN 전후의 행 수와 JOIN key의 중복 여부를 함께 확인하고 싶다.
 ```
 
 수고하셨습니다!
