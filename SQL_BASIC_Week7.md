@@ -191,7 +191,8 @@ FROM ANIMAL_INS
 ORDER BY NAME ASC, DATETIME DESC;
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="930" height="903" alt="image" src="https://github.com/user-attachments/assets/9586368c-1849-45f9-b343-ae42dd5e44d5" />
+
 
 ## 🧩 문제 2
 
@@ -219,7 +220,8 @@ HAVING COUNT(NAME) >= 2
 ORDER BY NAME ASC;
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="930" height="844" alt="image" src="https://github.com/user-attachments/assets/ea16c34b-a171-49c7-9c5d-b018815dacd7" />
+
 
 ---
 
